@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   res.json("server start");
 });
 
-app.post("/signUpApi", async (req, res) => {
+app.post("/signup/api", async (req, res) => {
   const { name, userName, email, password } = req.body;
   if (!name || !userName || !email || !password) {
     res.json({ message: "required fields are missing", status: false });
@@ -51,8 +51,12 @@ app.post("/signUpApi", async (req, res) => {
     message: "user create  successfully",
     status: true,
   });
+
+  res.json({
+    message: "signup/api",
+  });
 });
-app.post("/loginApi", async (req, res) => {
+app.post("/login/api", async (req, res) => {
   const { email, password } = req.body;
   const userEmail = await userModel.findOne({ email });
 
@@ -77,5 +81,8 @@ app.post("/loginApi", async (req, res) => {
   res.json({
     message: "user  login successfully",
     status: true,
+  });
+  res.json({
+    message: "login/api",
   });
 });
