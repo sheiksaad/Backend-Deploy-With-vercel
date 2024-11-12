@@ -1,9 +1,10 @@
 import express from "express";
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import userModel from "./Models/userModel.js";
 import cors from "cors";
 import "dotenv/config";
+import { foodData } from "./foodData.js";
 
 const app = express();
 
@@ -86,3 +87,12 @@ app.post("/login/api", async (req, res) => {
     message: "login/api",
   });
 });
+
+
+app.get("/food",(req,res)=>{
+  res.status(200).json({
+    message:"food api",
+    status:true,
+    data:foodData
+  })
+})
