@@ -52,10 +52,6 @@ app.post("/signup/api", async (req, res) => {
     message: "user create  successfully",
     status: true,
   });
-
-  res.json({
-    message: "signup/api",
-  });
 });
 app.post("/login/api", async (req, res) => {
   const { email, password } = req.body;
@@ -82,9 +78,6 @@ app.post("/login/api", async (req, res) => {
   res.json({
     message: "user  login successfully",
     status: true,
-  });
-  res.json({
-    message: "login/api",
   });
 });
 
